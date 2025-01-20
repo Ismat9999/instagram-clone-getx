@@ -89,8 +89,9 @@ class _SignInPageState extends State<SignInPage> {
                         child: Container(
                           margin: EdgeInsets.only(top: 10),
                           height: 50,
-                          padding: EdgeInsets.only(left: 10),
+                          padding: EdgeInsets.only(left: 10, right: 10),
                           decoration: BoxDecoration(
+                            color: Colors.white.withOpacity(0.2),
                             borderRadius: BorderRadius.circular(7),
                           ),
                           child: const Center(
