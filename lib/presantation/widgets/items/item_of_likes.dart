@@ -3,7 +3,7 @@ import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:instaclone/data/datasources/models/post_model.dart';
 
-Widget itemOfPost(Post post, BuildContext context) {
+Widget itemOfLikes(Post post, BuildContext context) {
   return Container(
     color: Colors.white,
     child: Column(
@@ -21,17 +21,17 @@ Widget itemOfPost(Post post, BuildContext context) {
                     borderRadius: BorderRadius.circular(40),
                     child: post.img_user.isEmpty
                         ? Image(
-                            image: AssetImage("assets/images/ic_person.png"),
-                            width: 40,
-                            height: 40,
-                            fit: BoxFit.cover,
-                          )
+                      image: AssetImage("assets/images/ic_person.png"),
+                      width: 40,
+                      height: 40,
+                      fit: BoxFit.cover,
+                    )
                         : Image.network(
-                            post.img_user,
-                            width: 40,
-                            height: 40,
-                            fit: BoxFit.cover,
-                          ),
+                      post.img_user,
+                      width: 40,
+                      height: 40,
+                      fit: BoxFit.cover,
+                    ),
                   ),
                   SizedBox(
                     width: 10,
@@ -57,9 +57,9 @@ Widget itemOfPost(Post post, BuildContext context) {
               ),
               post.mine
                   ? IconButton(
-                      onPressed: () {},
-                      icon: Icon(Icons.more_horiz),
-                    )
+                onPressed: () {},
+                icon: Icon(Icons.more_horiz),
+              )
                   : SizedBox.shrink(),
             ],
           ),
@@ -86,13 +86,13 @@ Widget itemOfPost(Post post, BuildContext context) {
                   },
                   icon: post.liked
                       ? Icon(
-                          EvaIcons.heart,
-                          color: Colors.red,
-                        )
+                    EvaIcons.heart,
+                    color: Colors.red,
+                  )
                       : Icon(
-                          EvaIcons.heartOutline,
-                          color: Colors.black,
-                        ),
+                    EvaIcons.heartOutline,
+                    color: Colors.black,
+                  ),
                 ),
                 IconButton(
                   onPressed: () {},

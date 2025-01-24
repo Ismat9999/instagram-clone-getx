@@ -2,6 +2,9 @@
 
 import 'package:get/get.dart';
 import 'package:instaclone/presantation/controllers/my_feed_controller.dart';
+import 'package:instaclone/presantation/controllers/my_likes_controller.dart';
+import 'package:instaclone/presantation/controllers/my_profile_controller.dart';
+import 'package:instaclone/presantation/controllers/my_search_controller.dart';
 import 'package:instaclone/presantation/controllers/my_upload_controller.dart';
 
 import '../../presantation/controllers/home_controller.dart';
@@ -18,5 +21,8 @@ class RootBinding extends Bindings {
     Get.lazyPut(()=> SignUpController(), fenix: true);
     Get.lazyPut(()=> MyUploadController(), fenix: true);
     Get.lazyPut(()=> MyFeedController(), fenix: true);
+    Get.lazyPut(()=> MyLikesController(), fenix: true);
+    Get.lazyPut(()=> MySearchController(), fenix: true);
+    Get.lazyPut(()=> MyProfileController(), fenix: true);
   }
 }
