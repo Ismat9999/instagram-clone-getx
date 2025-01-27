@@ -44,7 +44,9 @@ class _MyProfilePageState extends State<MyProfilePage> {
               //# myphoto
               GestureDetector(
                 // #myphoto
-                onTap: () {},
+                onTap: () {
+                  profileController.doSignOut(context);
+                },
                 child: Stack(
                   children: [
                     Container(

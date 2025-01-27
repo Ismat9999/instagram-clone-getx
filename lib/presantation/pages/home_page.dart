@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:instaclone/core/services/log_service.dart';
+import 'package:instaclone/core/services/prefs_service.dart';
 import 'package:instaclone/presantation/controllers/home_controller.dart';
 import 'package:instaclone/presantation/pages/my_feed_page.dart';
 import 'package:instaclone/presantation/pages/my_likes_page.dart';
@@ -17,6 +19,18 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   var homeController= Get.find<HomeController>();
+
+  @override
+  void initState() {
+    super.initState();
+    loadUserId();
+  }
+
+  loadUserId()async{
+    var uuid= await PrefsService.loadUserId();
+    LogService.i(uuid);
+  }
+
   @override
   Widget build(BuildContext context) {
     return GetBuilder<HomeController>(

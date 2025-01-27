@@ -10,7 +10,7 @@ class SignUpPage extends StatefulWidget {
 }
 
 class _SignUpPageState extends State<SignUpPage> {
-  var signUpController= Get.find<SignUpController>();
+  var signUpController = Get.find<SignUpController>();
 
   @override
   Widget build(BuildContext context) {
@@ -23,10 +23,9 @@ class _SignUpPageState extends State<SignUpPage> {
               begin: Alignment.topCenter,
               end: Alignment.bottomCenter,
               colors: [
-                Color.fromRGBO(193,53,132,1),
-                Color.fromRGBO(131,58,180,1),
-              ]
-          ),
+                Color.fromRGBO(193, 53, 132, 1),
+                Color.fromRGBO(131, 58, 180, 1),
+              ]),
         ),
         child: Stack(
           children: [
@@ -37,7 +36,13 @@ class _SignUpPageState extends State<SignUpPage> {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text("Instagram", style: TextStyle(color: Colors.white, fontSize: 45, fontFamily: "Billabong"),),
+                      Text(
+                        "Instagram",
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 45,
+                            fontFamily: "Billabong"),
+                      ),
                       // fullname
                       Container(
                         margin: const EdgeInsets.only(top: 10),
@@ -45,17 +50,15 @@ class _SignUpPageState extends State<SignUpPage> {
                         padding: const EdgeInsets.only(left: 10, right: 10),
                         decoration: BoxDecoration(
                             color: Colors.white.withOpacity(0.2),
-                            borderRadius: BorderRadius.circular(7)
-                        ),
+                            borderRadius: BorderRadius.circular(7)),
                         child: TextField(
                           controller: signUpController.fullnameController,
                           style: const TextStyle(color: Colors.white),
                           decoration: const InputDecoration(
                             hintText: "Email",
                             border: InputBorder.none,
-                            hintStyle: TextStyle(
-                                fontSize: 17, color: Colors.white54
-                            ),
+                            hintStyle:
+                                TextStyle(fontSize: 17, color: Colors.white54),
                           ),
                         ),
                       ),
@@ -67,17 +70,15 @@ class _SignUpPageState extends State<SignUpPage> {
                         padding: const EdgeInsets.only(left: 10, right: 10),
                         decoration: BoxDecoration(
                             color: Colors.white.withOpacity(0.2),
-                            borderRadius: BorderRadius.circular(7)
-                        ),
+                            borderRadius: BorderRadius.circular(7)),
                         child: TextField(
                           controller: signUpController.emailController,
                           style: const TextStyle(color: Colors.white),
                           decoration: const InputDecoration(
                             hintText: "Email",
                             border: InputBorder.none,
-                            hintStyle: TextStyle(
-                                fontSize: 17, color: Colors.white54
-                            ),
+                            hintStyle:
+                                TextStyle(fontSize: 17, color: Colors.white54),
                           ),
                         ),
                       ),
@@ -89,17 +90,15 @@ class _SignUpPageState extends State<SignUpPage> {
                         padding: const EdgeInsets.only(left: 10, right: 10),
                         decoration: BoxDecoration(
                             color: Colors.white.withOpacity(0.2),
-                            borderRadius: BorderRadius.circular(7)
-                        ),
+                            borderRadius: BorderRadius.circular(7)),
                         child: TextField(
                           controller: signUpController.passwordController,
                           style: const TextStyle(color: Colors.white),
                           decoration: const InputDecoration(
                             hintText: "Password",
                             border: InputBorder.none,
-                            hintStyle: TextStyle(
-                                fontSize: 17, color: Colors.white54
-                            ),
+                            hintStyle:
+                                TextStyle(fontSize: 17, color: Colors.white54),
                           ),
                         ),
                       ),
@@ -111,25 +110,23 @@ class _SignUpPageState extends State<SignUpPage> {
                         padding: const EdgeInsets.only(left: 10, right: 10),
                         decoration: BoxDecoration(
                             color: Colors.white.withOpacity(0.2),
-                            borderRadius: BorderRadius.circular(7)
-                        ),
+                            borderRadius: BorderRadius.circular(7)),
                         child: TextField(
                           controller: signUpController.cpasswordController,
                           style: const TextStyle(color: Colors.white),
                           decoration: const InputDecoration(
                             hintText: "Confirm Password",
                             border: InputBorder.none,
-                            hintStyle: TextStyle(
-                                fontSize: 17, color: Colors.white54
-                            ),
+                            hintStyle:
+                                TextStyle(fontSize: 17, color: Colors.white54),
                           ),
                         ),
                       ),
 
                       //   signIn
                       GestureDetector(
-                        onTap: (){
-                          signUpController.callHomePage();
+                        onTap: () {
+                          signUpController.doSignUp(context);
                         },
                         child: Container(
                           margin: EdgeInsets.only(top: 10),
@@ -139,7 +136,11 @@ class _SignUpPageState extends State<SignUpPage> {
                             borderRadius: BorderRadius.circular(7),
                           ),
                           child: const Center(
-                            child: Text("Sign Up",style: TextStyle(color: Colors.white, fontSize: 17),),
+                            child: Text(
+                              "Sign Up",
+                              style:
+                                  TextStyle(color: Colors.white, fontSize: 17),
+                            ),
                           ),
                         ),
                       ),
@@ -150,14 +151,24 @@ class _SignUpPageState extends State<SignUpPage> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    const Text("All ready have an account?", style: TextStyle(color: Colors.white, fontSize: 16),),
-                    const SizedBox(width: 10,),
+                    const Text(
+                      "All ready have an account?",
+                      style: TextStyle(color: Colors.white, fontSize: 16),
+                    ),
+                    const SizedBox(
+                      width: 10,
+                    ),
                     GestureDetector(
-                        onTap: (){
+                        onTap: () {
                           signUpController.callSignInPage();
                         },
-                        child: const Text("Sign In",style: TextStyle(color: Colors.white, fontSize: 17, fontWeight: FontWeight.bold),)
-                    ),
+                        child: const Text(
+                          "Sign In",
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 17,
+                              fontWeight: FontWeight.bold),
+                        )),
                   ],
                 ),
               ],

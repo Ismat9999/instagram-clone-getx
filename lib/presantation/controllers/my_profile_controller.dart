@@ -1,5 +1,11 @@
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:instaclone/core/services/auth_service.dart';
+import 'package:instaclone/core/services/log_service.dart';
+import 'package:instaclone/core/services/prefs_service.dart';
+import 'package:instaclone/core/services/utils_service.dart';
 import 'package:instaclone/data/datasources/models/post_model.dart';
+import 'package:instaclone/presantation/pages/sign_in_page.dart';
 
 class MyProfileController extends GetxController {
   String? member_image;
@@ -40,5 +46,15 @@ class MyProfileController extends GetxController {
   void changedAxisCount(int axisCount) {
     this.axisCount = axisCount;
     update();
+  }
+
+  void doSignOut(BuildContext context)async{
+    var result = await UtilsService.dialogCommon(context, "Sign Out", "Do you want to sign out/", false);
+    LogService.i(result.toString());
+    if(result){
+      await AuthService.signOutUser();
+      PrefsService.removeUserId();
+      Get.off(SignInPage());
+    }
   }
 }
