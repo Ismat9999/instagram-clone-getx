@@ -29,7 +29,9 @@ class _MyProfilePageState extends State<MyProfilePage> {
         title: Text("Profile"),
         actions: [
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              profileController.doSignOut(context);
+            },
             icon: Icon(
               Icons.exit_to_app,
               color: Color.fromRGBO(192, 53, 132, 1),
@@ -44,9 +46,7 @@ class _MyProfilePageState extends State<MyProfilePage> {
               //# myphoto
               GestureDetector(
                 // #myphoto
-                onTap: () {
-                  profileController.doSignOut(context);
-                },
+                onTap: () {},
                 child: Stack(
                   children: [
                     Container(

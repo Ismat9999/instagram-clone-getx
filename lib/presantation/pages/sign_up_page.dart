@@ -55,7 +55,7 @@ class _SignUpPageState extends State<SignUpPage> {
                           controller: signUpController.fullnameController,
                           style: const TextStyle(color: Colors.white),
                           decoration: const InputDecoration(
-                            hintText: "Email",
+                            hintText: "Full Name",
                             border: InputBorder.none,
                             hintStyle:
                                 TextStyle(fontSize: 17, color: Colors.white54),

@@ -49,7 +49,7 @@ class MyProfileController extends GetxController {
   }
 
   void doSignOut(BuildContext context)async{
-    var result = await UtilsService.dialogCommon(context, "Sign Out", "Do you want to sign out/", false);
+    var result = await UtilsService.dialogCommon(context, "Sign Out", "Do you want to sign out!", false);
     LogService.i(result.toString());
     if(result){
       await AuthService.signOutUser();
