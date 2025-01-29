@@ -2,8 +2,10 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:instaclone/core/services/auth_service.dart';
+import 'package:instaclone/core/services/db_service.dart';
 import 'package:instaclone/core/services/prefs_service.dart';
 import 'package:instaclone/core/services/utils_service.dart';
+import 'package:instaclone/data/datasources/models/member_model.dart';
 import 'package:instaclone/presantation/pages/home_page.dart';
 import 'package:instaclone/presantation/pages/sign_in_page.dart';
 
@@ -47,6 +49,8 @@ class SignUpController extends GetxController {
 
     if(firebaseUser != null){
       PrefsService.saveUserId(firebaseUser.uid);
+      Member member=Member(fullname, email);
+      await DBService.storeMember(member);
       callHomePage();
     }else {
      UtilsService.fireToast("Please check your information!");
