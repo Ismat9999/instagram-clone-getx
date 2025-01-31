@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:instaclone/data/datasources/models/member_model.dart';
+import 'package:instaclone/presantation/controllers/my_search_controller.dart';
 
-Widget itemOfMember(Member member, BuildContext context) {
+Widget itemOfMember(Member member, MySearchController searchController,BuildContext context) {
   return Container(
     height: 90,
     child: Row(
@@ -58,15 +59,24 @@ Widget itemOfMember(Member member, BuildContext context) {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                 Container(
-                   width: 100,
-                   height: 30,
-                   decoration: BoxDecoration(
-                     borderRadius: BorderRadius.circular(3),
-                     border: Border.all(width: 1, color: Colors.grey),
-                   ),
-                   child: Center(
-                     child: member.followed ? Text("Following"): Text("Follow"),
+                 GestureDetector(
+                   onTap: (){
+                     if(!member.followed){
+                       searchController.followMember(member);
+                     }else{
+                       searchController.unFollowMember(member);
+                     }
+                   },
+                   child: Container(
+                     width: 100,
+                     height: 30,
+                     decoration: BoxDecoration(
+                       borderRadius: BorderRadius.circular(3),
+                       border: Border.all(width: 1, color: Colors.grey),
+                     ),
+                     child: Center(
+                       child: member.followed ? Text("Following"): Text("Follow"),
+                     ),
                    ),
                  ),
                 ],

@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:instaclone/core/services/db_service.dart';
 
 import '../../data/datasources/models/member_model.dart';
 
@@ -6,24 +7,42 @@ class MySearchController extends GetxController {
   bool isLoading = false;
   List<Member> items = [];
 
-  addFakeMembers() {
-    Member member1 = Member("Ismatilla", "ismatilla@gmail.com");
-    member1.img_url =
-        "https://images.unsplash.com/photo-1737111869094-80ed40daca91?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D";
 
-    Member member2 = Member("Aziz", "aziz@gmail.com");
+  apiLoadMembers(String keyword)async{
+    isLoading=true;
+    update();
 
-    items.add(member1);
-    items.add(member2);
-    items.add(member1);
-    items.add(member2);
-    items.add(member1);
-    items.add(member2);
-    items.add(member1);
-    items.add(member2);
-    items.add(member1);
-    items.add(member2);
-    items.add(member1);
-    items.add(member2);
+    var results=await DBService.searchMembers(keyword);
+    items = results;
+    isLoading= false;
+    update();
+  }
+
+  void followMember(Member someone)async{
+    isLoading=true;
+    update();
+
+    await DBService.followMember(someone);
+    someone.followed=true;
+
+    isLoading=false;
+    update();
+
+    // Store someone's posts to my feed
+    await DBService.storePostsToMyFeed(someone);
+  }
+
+  void unFollowMember(Member someone)async{
+    isLoading=true;
+    update();
+
+    await DBService.unFollowMember(someone);
+    someone.followed=false;
+
+    isLoading=false;
+    update();
+
+    // Remove someone's posts to my feed
+    DBService.removePostsToMyFeed(someone);
   }
 }

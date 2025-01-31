@@ -53,6 +53,7 @@ class _MyUploadPageState extends State<MyUploadPage> {
                               Image.file(
                                 uploadController.pickedImage!,
                                 width: double.infinity,
+                                height: double.infinity,
                                 fit: BoxFit.cover,
                               ),
                               Container(

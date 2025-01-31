@@ -2,8 +2,9 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:instaclone/data/datasources/models/post_model.dart';
+import 'package:instaclone/presantation/controllers/my_feed_controller.dart';
 
-Widget itemOfPost(Post post, BuildContext context) {
+Widget itemOfPost(Post post,MyFeedController feedController ,BuildContext context) {
   return Container(
     color: Colors.white,
     child: Column(
@@ -57,7 +58,9 @@ Widget itemOfPost(Post post, BuildContext context) {
               ),
               post.mine
                   ? IconButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        feedController.dialogRemovePost(context,post);
+                      },
                       icon: Icon(Icons.more_horiz),
                     )
                   : SizedBox.shrink(),
@@ -82,7 +85,10 @@ Widget itemOfPost(Post post, BuildContext context) {
                 IconButton(
                   onPressed: () {
                     if (!post.liked) {
-                    } else {}
+                      feedController.apiLikePost(post);
+                    } else {
+                      feedController.apiUnlikePost(post);
+                    }
                   },
                   icon: post.liked
                       ? Icon(

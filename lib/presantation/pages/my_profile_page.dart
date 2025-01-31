@@ -17,7 +17,8 @@ class _MyProfilePageState extends State<MyProfilePage> {
   @override
   void initState() {
     super.initState();
-    profileController.addFewPosts();
+    profileController.apiLoadPosts();
+    profileController.apiLoadMember();
   }
 
   @override
@@ -46,7 +47,9 @@ class _MyProfilePageState extends State<MyProfilePage> {
               //# myphoto
               GestureDetector(
                 // #myphoto
-                onTap: () {},
+                onTap: () {
+                  profileController.pickFromGallery();
+                },
                 child: Stack(
                   children: [
                     Container(
@@ -152,7 +155,7 @@ class _MyProfilePageState extends State<MyProfilePage> {
                         child: Column(
                           children: [
                             Text(
-                              profileController.count_follow.toString(),
+                              profileController.count_follower.toString(),
                               style: TextStyle(
                                   color: Colors.black,
                                   fontSize: 16,
@@ -177,8 +180,7 @@ class _MyProfilePageState extends State<MyProfilePage> {
                         child: Column(
                           children: [
                             Text(
-                              profileController.count_following
-                                  .toString(),
+                              profileController.count_following.toString(),
                               style: TextStyle(
                                   color: Colors.black,
                                   fontSize: 16,

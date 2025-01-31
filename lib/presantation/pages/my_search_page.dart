@@ -17,7 +17,7 @@ class _MySearchPageState extends State<MySearchPage> {
   @override
   void initState() {
     super.initState();
-    searchController.addFakeMembers();
+    searchController.apiLoadMembers("");
   }
   @override
   Widget build(BuildContext context) {
@@ -46,7 +46,7 @@ class _MySearchPageState extends State<MySearchPage> {
                       child: TextField(
                         style: TextStyle(color: Colors.black87),
                         decoration: InputDecoration(
-                          hintText: "Serach",
+                          hintText: "Search",
                           border: InputBorder.none,
                           hintStyle:
                               TextStyle(fontSize: 15, color: Colors.grey),
@@ -62,7 +62,7 @@ class _MySearchPageState extends State<MySearchPage> {
                       child: ListView.builder(
                         itemCount: searchController.items.length,
                         itemBuilder: (context, index){
-                          return itemOfMember(searchController.items[index],context);
+                          return itemOfMember(searchController.items[index],searchController,context);
                         },
                       ),
                     ),

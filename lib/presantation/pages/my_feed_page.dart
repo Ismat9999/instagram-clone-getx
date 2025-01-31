@@ -19,7 +19,7 @@ class _MyFeedPageState extends State<MyFeedPage> {
   @override
   void initState() {
     super.initState();
-    feedController.addFewPosts();
+    feedController.apiLoadMyFeed();
   }
 
   @override
@@ -53,7 +53,7 @@ class _MyFeedPageState extends State<MyFeedPage> {
               ListView.builder(
                 itemCount: feedController.items.length,
                 itemBuilder: (ctx, index) {
-                  return itemOfPost(feedController.items[index], context);
+                  return itemOfPost(feedController.items[index],feedController,context);
                 },
               ),
               feedController.isLoading ? Center(child: CircularProgressIndicator(),):SizedBox.shrink(),

@@ -17,7 +17,7 @@ class _MyLikesPageState extends State<MyLikesPage> {
   @override
   void initState() {
     super.initState();
-    likesController.addFewPosts();
+    likesController.apiLoadLikes();
   }
 
   @override
@@ -35,7 +35,7 @@ class _MyLikesPageState extends State<MyLikesPage> {
             ListView.builder(
               itemCount: likesController.items.length,
               itemBuilder: (ctx, index) {
-                return itemOfLikes(likesController.items[index], context);
+                return itemOfLikes(likesController.items[index],likesController ,context);
               },
             ),
             likesController.isLoading

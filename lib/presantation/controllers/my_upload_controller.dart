@@ -18,13 +18,13 @@ class MyUploadController extends GetxController {
     if (caption.isEmpty) return;
     if (pickedImage == null) return;
 
-    //   #TODO -upload new post to server;
     isLoading = true;
     update();
 
     String img_post = await FileService.uploadPostImage(pickedImage!);
     Post post = Post(caption, img_post);
-    await DBService.storePost(post);
+    Post mypost= await DBService.storePost(post);
+    await DBService.storeFeed(mypost);
 
     isLoading = false;
     update();

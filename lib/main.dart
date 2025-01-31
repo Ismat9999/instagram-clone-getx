@@ -13,6 +13,7 @@ void main() async{
       appId: '1:874665280513:android:57fb1c50557f2ed4ab6c00',
       messagingSenderId: '874665280513',
       projectId: 'instaclone-3-470b7',
+      storageBucket: "instaclone-3-470b7.firebasestorage.app",
     ),
   );
   runApp(const MyApp());
