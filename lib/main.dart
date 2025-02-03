@@ -1,6 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
+import 'package:instaclone/core/services/notif_service.dart';
 import 'package:instaclone/presantation/pages/splash_page.dart';
 
 import 'core/config/root_binding.dart';
@@ -16,6 +17,7 @@ void main() async{
       storageBucket: "instaclone-3-470b7.firebasestorage.app",
     ),
   );
+  await NotifService().init();
   runApp(const MyApp());
 }
 

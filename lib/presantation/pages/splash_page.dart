@@ -16,6 +16,7 @@ class _SplashPageState extends State<SplashPage> {
   void initState() {
     super.initState();
     splashController.initTimer();
+    splashController.initNotification();
   }
   @override
   Widget build(BuildContext context) {
